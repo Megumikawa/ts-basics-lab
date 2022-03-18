@@ -14,7 +14,7 @@ export default () => {
   // • Hover over variables to inspect their types.
   // • Fix the error on line 18 by changing the value of pi to the expected type.
  
-  let pi = '3.14159';
+  let pi = 3.14159;
   let tau = pi * 2;
   
   console.log('[Exercise 1.1]', `${tau} is ${pi} times two.`);
@@ -25,7 +25,7 @@ export default () => {
   // • Add an explicit type annotation to `pie`
   // • Try assigning invalid types, for fun
 
-  let pie;
+  let pie: string;
   pie = 'blueberry';
 
   console.log('[Exercise 1.2]', `I like to eat ${pie}-flavored pie.`);
@@ -34,7 +34,7 @@ export default () => {
   // Instructions:
   // • Inspect the error, then fix it.
 
-  let isMark: boolean;
+  let isMark: boolean = true;
 
   console.log('[Exercise 1.3]', `${isMark ? 'Oh, hi Mark' : 'Who are you?'}`);
 
@@ -74,10 +74,10 @@ export default () => {
   // • Add type annotations (as explicit as possible)
   // • Fix errors (if applicable)
 
-  const sequence = Array.from(Array(10).keys());
-  const animals = ['pangolin', 'aardvark', 'echidna', 'binturong'];
-  const stringsAndNumbers = [1, 'one', 2, 'two', 3, 'three'];
-  const allMyArrays = [sequence, animals, stringsAndNumbers];
+  const sequence: number[] = Array.from(Array(10).keys());
+  const animals: string[] = ['pangolin', 'aardvark', 'echidna', 'binturong'];
+  const stringsAndNumbers: (number | string)[] = [1, 'one', 2, 'two', 3, 'three'];
+  const allMyArrays:(number|string)[][] = [sequence, animals, stringsAndNumbers];
 
   console.log('Exercise 1.5', allMyArrays);
 
@@ -89,7 +89,7 @@ export default () => {
   // We want to represent an inventoryItem as a structure where
   // the first entry is the item name and the second is the quantity
 
-  const inventoryItem = ['fidget wibbit', 11];
+  const inventoryItem: [string, number] = ['fidget wibbit', 11];
 
   // later we destructure it
   const [name, qty] = inventoryItem;

@@ -14,15 +14,15 @@ export default () => {
   // • Add explicit parameter types and return type
   // • Fix any errors resulting from invalid types
 
-  function add(x, y) {
+  function add(x: number, y: number) {
     return x + y;
   }
 
-  function sumArray(numbers) {
+  function sumArray(numbers:number[]):number {
     return numbers.reduce(add, 0);
   }
 
-  const someSum = sumArray(['3', '6', '9']);
+  const someSum = sumArray([3, 6, 9]);
 
   console.log('[Exercise 2.1]', `3 + 6 + 9 === ${someSum}`);
 
@@ -33,7 +33,7 @@ export default () => {
 
   const bankAccount = {
     money: 0,
-    deposit(value, message) {
+    deposit(value:number, message?:string) {
       this.money += value;
       if (message) {
         console.log(message);
@@ -51,13 +51,13 @@ export default () => {
   // Instructions:
   // • Add type annotations wherever possible
 
-  function computeScore(word) {
-    const letters = word.toUpperCase().split('');
-    return letters.reduce((accum, curr) => accum += getPointsFor(curr), 0);
+  function computeScore(word:string):number {
+    const letters:string[] = word.toUpperCase().split('');
+    return letters.reduce((accum:number, curr:string) => accum += getPointsFor(curr), 0);
   }
 
-  function getPointsFor(letter) {
-    const lettersAndPoints = [
+  function getPointsFor(letter:string) {
+    const lettersAndPoints:[string, number][] = [
       ['AEOIULNRST', 1],
       ['DG', 2],
       ['BCMP', 3],
@@ -83,7 +83,7 @@ export default () => {
   // • Add explicit parameter types and return types
   // • Add a default greeting: "hello"
 
-  function greet(greeting) {
+  function greet(greeting:string = 'hello') {
     return greeting.toUpperCase();
   }
 
@@ -97,11 +97,11 @@ export default () => {
   // • Add parameter type annotation
   // • Even though this function doesn't return, add an explicit return type
 
-  function layEggs(quantity, color) {
+  function layEggs(quantity:number, color:string):void {
     console.log(`[Exercise 2.5] You just laid ${quantity} ${color} eggs. Good job!`);
   }
 
-  layEggs();
+  layEggs(1,'red');
 
   // ======== Exercise 2.6 ========
   // Here we've initialized two variables with function types.
@@ -112,11 +112,11 @@ export default () => {
   let multiply: (val1: number, val2: number) => number;
   let capitalize: (val: string) => string;
 
-  multiply = function(value: string): string {
+  capitalize = function(value: string): string {
     return `${value.charAt(0).toUpperCase()}${value.slice(1)}`;
   }
 
-  capitalize = function(x: number, y: number): number {
+  multiply = function(x: number, y: number): number {
     return x * y;
   }
 
